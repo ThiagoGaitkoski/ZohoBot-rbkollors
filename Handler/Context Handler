@@ -1,0 +1,1086 @@
+Context Handler
+response = Map();
+response.put("action","context");
+response.put("context_id",context_id);
+if(context_id.equals("browsing"))
+{
+	browsing = answers.get("browsing").get("text");
+	if(browsing == "No, Thank you")
+	{
+		response.put("action","end");
+		response.put("replies",{"Have a great day"});
+	}
+	else
+	{
+		response.put("action","reply");
+		response.put("replies",{"What else can I help you with?"});
+		response.put("suggestions",{"Technical questions","I already placed my order","Products/Services","Purchase"});
+	}
+}
+//SPANISH
+else if(context_id.equals("tecnicas"))
+{
+	tec = answers.get("tecnicas").get("text");
+	if(tec.equalsIgnoreCase("Neutralizacion del color de labios"))
+	{
+		if(!answers.containsKey("elsepart"))
+		{
+			question = {"name":"elsepart","replies":{"¡Por supuesto! Es posible que desee consultar el Blog sobre el tema de [Neutralización del color de labios](http://blog.rbkollors.com.br/neutralizacao-de-cor-de-labios-o-guia-completo-da-rbkollors/)","¿Necesitas más ayuda?"},"input":{"type":"select","options":{"Si, necesito ayuda","No, gracias"}}};
+			response.put("questions",{question});
+		}
+		else
+		{
+			response.put("action","reply");
+			response.put("replies",{"¿En qué más puedo ayudarte?"});
+			response.put("suggestions",{"Preguntas tecnicas","Ya hice mi pedido","Productos y servicios","Compra"});
+		}
+	}
+	if(tec.equalsIgnoreCase("Neutralizacion del color de las cejas"))
+	{
+		if(!answers.containsKey("elsepart"))
+		{
+			question = {"name":"elsepart","replies":{"¡Por supuesto! Es posible que desee consultar el Blog sobre el tema de [Neutralizacion del color de las cejas](http://blog.rbkollors.com.br/neutralizacao-de-cor-de-sobrancelhas-rbkollors/)","¿Necesitas más ayuda?"},"input":{"type":"select","options":{"Si, necesito ayuda","No, gracias"}}};
+			response.put("questions",{question});
+		}
+		else
+		{
+			response.put("action","reply");
+			response.put("replies",{"¿En qué más puedo ayudarte?"});
+			response.put("suggestions",{"Preguntas tecnicas","Ya hice mi pedido","Productos y servicios","Compra"});
+		}
+	}
+	if(tec.equalsIgnoreCase("Calentamiento del pigmento"))
+	{
+		if(!answers.containsKey("elsepart"))
+		{
+			question = {"name":"elsepart","replies":{"¡Por supuesto! Es posible que desee consultar el Blog sobre el tema de [Calentamiento de pigmentos](https://www.rbkollorsusa.com/blogs/post/when-to-heat-rbkollors-pigments-which-are-already-hot-in-their-composition)","¿Necesitas más ayuda?"},"input":{"type":"select","options":{"Si, necesito ayuda","No, gracias"}}};
+			response.put("questions",{question});
+		}
+		else
+		{
+			response.put("action","reply");
+			response.put("replies",{"¿En qué más puedo ayudarte?"});
+			response.put("suggestions",{"Preguntas tecnicas","Ya hice mi pedido","Productos y servicios","Compra"});
+		}
+	}
+	if(tec.equalsIgnoreCase("Otros"))
+	{
+		if(!answers.containsKey("elsepart"))
+		{
+			question = {"name":"elsepart","replies":{"En este caso, puede enviar su pregunta a info@rbkollorsusa.com","¿Necesitas más ayuda?"},"input":{"type":"select","options":{"Si, necesito ayuda","No, gracias"}}};
+			response.put("questions",{question});
+		}
+		else
+		{
+			response.put("action","reply");
+			response.put("replies",{"¿En qué más puedo ayudarte?"});
+			response.put("suggestions",{"Preguntas tecnicas","Ya hice mi pedido","Productos y servicios","Compra"});
+		}
+	}
+	else if(tec == "labios")
+	{
+		response.put("action","context");
+		response.put("context_id","labios");
+		question = {"name":"labios","replies":{"[KIT LIPS](https://www.rbkollorsusa.com/products/kit-lips/2346235000000071048?variant=2346235000000071044)","[RED SAND 15ML](https://www.rbkollorsusa.com/products/red-sand-15ml/2346235000000071332?variant=2346235000000071328)","[FULL LIPS](https://www.rbkollorsusa.com/products/full-lips-15ml/2346235000000071520?variant=2346235000000071516)","[DARLING 15ML](https://www.rbkollorsusa.com/products/darling-15ml/2346235000000071548?variant=2346235000000071544)","[PENELOPE 15ML](https://www.rbkollorsusa.com/products/penelope-15ml/2346235000000071586?variant=2346235000000071582)","[RUBY 15ML](https://www.rbkollorsusa.com/products/ruby-15ml/2346235000000071624?variant=2346235000000071620)","[RED VELVET 15ML](https://www.rbkollorsusa.com/products/red-velvet-15ml/2346235000000071662?variant=2346235000000071658)","[RED ROSE 15ML](https://www.rbkollorsusa.com/products/red-rose-15ml/2346235000000071690?variant=2346235000000071686)","[PEACH 15ML](https://www.rbkollorsusa.com/products/peach-15ml/2346235000000071718?variant=2346235000000071714)","[UTOPIA 15ML](https://www.rbkollorsusa.com/products/utopia-15ml/2346235000000071746?variant=2346235000000071742)","[TRUE LOVE 15ML](https://www.rbkollorsusa.com/products/true-love-15ml/2346235000000071774?variant=2346235000000071770)","[RED LIFE 15ML](https://www.rbkollorsusa.com/products/red-life-15ml/2346235000000071812?variant=2346235000000071808)","[DILUENT 15ML](https://www.rbkollorsusa.com/products/diluent-15ml/2346235000000071840?variant=2346235000000071836)","[TERRACOTAA 15ML](https://www.rbkollorsusa.com/products/terracotta-15ml/2346235000000414139?variant=2346235000000414135)","[SAN 15ML](https://www.rbkollorsusa.com/products/san-15ml/2346235000000727014?variant=2346235000000727014)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+		response.put("questions",{question});
+	}
+	else if(tec == "cejas")
+	{
+		response.put("action","context");
+		response.put("context_id","cejas");
+		question = {"name":"cejas","replies":{"[KIT BEGINNERS](https://www.rbkollorsusa.com/products/kit-beginners/2346235000000071012?variant=2346235000000071008)","[KIT MIAMI](https://www.rbkollorsusa.com/products/kit-miami/2346235000000071076?variant=2346235000000071072)","[JAMBLACK 15ML](https://www.rbkollorsusa.com/products/jamblack-15ml/2346235000000071228?variant=2346235000000071224)","[JAMBO 15ML](https://www.rbkollorsusa.com/products/jambo-15ml/2346235000000071266?variant=2346235000000071262)","[BLOND 15ML](https://www.rbkollorsusa.com/products/blond-15ml/2346235000000071294?variant=2346235000000071290)","[HOT 15ML](https://www.rbkollorsusa.com/products/hot-15ml/2346235000000071360?variant=2346235000000071356)","[UNIVERSAL 15ML](https://www.rbkollorsusa.com/products/universal-15ml/2346235000000071388?variant=2346235000000071384)","[OMBRE-2 15ML](https://www.rbkollorsusa.com/products/ombré-2-15ml/2346235000000071416?variant=2346235000000071412)","[OMBRE-1 15ML](https://www.rbkollorsusa.com/products/ombré-1-15ml/2346235000000071454?variant=2346235000000071450)","[HONEY 15ML](https://www.rbkollorsusa.com/products/honey-15ml/2346235000000071492?variant=2346235000000071488)","[TOTAL BLACK 15ML](https://www.rbkollorsusa.com/products/total-black-15ml/2346235000000071892?variant=2346235000000071888)","[BLOND LIGHT 15ML](https://www.rbkollorsusa.com/products/blond-light-15ml/2346235000000414061?variant=2346235000000414057)","[ILUMINADOR 15ML](https://www.rbkollorsusa.com/products/iluminador-15ml/2346235000000737177?variant=2346235000000737173)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+		response.put("questions",{question});
+	}
+	else if(tec == "inorganico")
+	{
+		response.put("action","context");
+		response.put("context_id","inorganico");
+		question = {"name":"inorganico","replies":{"[SHADOW EXTA LIGHT](http://www.rbkollorsusa.com/products/inorganic-shadow-extra-light-15ml/2346235000000838111)","[SHADOW LIGHT](http://www.rbkollorsusa.com/products/b1782b18e7/2346235000000840304)","[BLEND RB 15ML](http://www.rbkollorsusa.com/products/inorganic-blend-15ml/2346235000000840285)","[OMBRE LINE RB 15ML](http://www.rbkollorsusa.com/products/inorganic-ombre-line-15ml/2346235000000840258)","[BROWNIE EXTRA DARK RB 15 ML](http://www.rbkollorsusa.com/products/inorganic-brownie-extra-dark-15ml/2346235000000840239)","[ICE REPAIR RB 15ML](http://www.rbkollorsusa.com/products/inorganic-ice-repair-15ml/2346235000000840207)","[BROWNIE RB 15ML](http://www.rbkollorsusa.com/products/inorganic-brownie-15ml/2346235000000840138)","[HOT REPAIR RB 15ML](http://www.rbkollorsusa.com/products/inorganic-hot-repair-15ml/2346235000000840119)","[ODENSE RB 15ML](http://www.rbkollorsusa.com/products/inorganic-odense-15ml/2346235000000840157)","[EVORA 15ML](http://www.rbkollorsusa.com/products/inorganic-evora-15ml/2346235000000840176)","[WHITE RB 15ML](http://www.rbkollorsusa.com/products/inorganic-white-15ml/2346235000000840226)","[VIENA 15ML](http://www.rbkollorsusa.com/products/h75a23fc30/2346235000000858964)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+		response.put("questions",{question});
+	}
+	else if(tec == "piel")
+	{
+		response.put("action","context");
+		response.put("context_id","piel");
+		question = {"name":"piel","replies":{"[SKIN-1 15ML](https://www.rbkollorsusa.com/products/skin-1/2346235000000737003?variant=2346235000000737005)","[SKIN-2 15ML](https://www.rbkollorsusa.com/products/skin-2-15ml/2346235000000737045?variant=2346235000000737041)","[SKIN-3 15ML](https://www.rbkollorsusa.com/products/skin-3-15ml/2346235000000737087?variant=2346235000000737083)","[SKIN-4 15ML](https://www.rbkollorsusa.com/products/skin-4-15ml/2346235000000737119?variant=2346235000000737115)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+		response.put("questions",{question});
+	}
+	else if(tec == "modificadores")
+	{
+		response.put("action","context");
+		response.put("context_id","modificadores");
+		question = {"name":"modificadores","replies":{"[PH DENSE 15ML](https://www.rbkollorsusa.com/products/ph-dense-15g/2346235000000414097?variant=2346235000000414093)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+		response.put("questions",{question});
+	}
+	else if(tec == "caliente")
+	{
+		response.put("action","context");
+		response.put("context_id","caliente");
+		question = {"name":"caliente","replies":{"[HOT 15ML](https://www.rbkollorsusa.com/products/hot-15ml/2346235000000071360?variant=2346235000000071356)","[HOT REPAIR RB 15ML(INORGANIC)](http://www.rbkollorsusa.com/products/inorganic-hot-repair-15ml/2346235000000840119)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+		response.put("questions",{question});
+	}
+	else if(tec == "equipo")
+	{
+		response.put("action","context");
+		response.put("context_id","equipo");
+		question = {"name":"equipo","replies":{"[KIT BEGINNERS](https://www.rbkollorsusa.com/products/kit-beginners/2346235000000071012?variant=2346235000000071008)","[KIT LIPS](https://www.rbkollorsusa.com/products/kit-lips/2346235000000071048?variant=2346235000000071044)","[KIT MIAMI](https://www.rbkollorsusa.com/products/kit-miami/2346235000000071076?variant=2346235000000071072)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+		response.put("questions",{question});
+	}
+	else if(tec == "rojo")
+	{
+		response.put("action","context");
+		response.put("context_id","rojo");
+		question = {"name":"rojo","replies":{"[RED SAND 15ML](https://www.rbkollorsusa.com/products/red-sand-15ml/2346235000000071332?variant=2346235000000071328)","[RED VELVET 15ML](https://www.rbkollorsusa.com/products/red-velvet-15ml/2346235000000071662?variant=2346235000000071658)","[RED ROSE 15ML](https://www.rbkollorsusa.com/products/red-rose-15ml/2346235000000071690?variant=2346235000000071686)","[RED LIFE 15ML](https://www.rbkollorsusa.com/products/red-life-15ml/2346235000000071812?variant=2346235000000071808)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+		response.put("questions",{question});
+	}
+}
+else if(context_id.equals("pedido"))
+{
+	pedido = answers.get("pedido").get("text");
+	if(pedido.equalsIgnoreCase("Codigo de seguimiento"))
+	{
+		if(!answers.containsKey("elsepart"))
+		{
+			question = {"name":"elsepart","replies":{"Recibirá el código automáticamente en su correo electrónico, marque su casilla de correo no deseado o acceda al sitio, vaya a mis cuentas y luego a mis pedidos "," Si no tiene el código de seguimiento, llame a un asistente para que lo ayude mejor :)","¿Necesitas más ayuda?"},"input":{"type":"select","options":{"Si, necesito ayuda","No, gracias"}}};
+			response.put("questions",{question});
+		}
+		else if(answers.get("elsepart").get("text") == "Si, necesito ayuda")
+		{
+			response.put("action","forward");
+			response.put("replies",{"Por favor espere mientras reenvío el chat a los agentes"});
+		}
+		else
+		{
+			response.put("action","reply");
+			response.put("replies",{"¿En qué más puedo ayudarte?"});
+			response.put("suggestions",{"Preguntas tecnicas","Ya hice mi pedido","Productos y servicios","Compra"});
+		}
+	}
+	if(pedido.equalsIgnoreCase("Problemas de entrega"))
+	{
+		if(!answers.containsKey("elsepart"))
+		{
+			question = {"name":"elsepart","replies":{"Envíe un correo electrónico con el número de pedido y una foto del evento a info@rbkollorsusa.com","¿Necesitas más ayuda?"},"input":{"type":"select","options":{"Si, necesito ayuda","No, gracias"}}};
+			response.put("questions",{question});
+		}
+		else if(answers.get("elsepart").get("text") == "No, gracias")
+		{
+			response.put("action","end");
+			response.put("replies",{"¡OKAY! Nos vemos más tarde. Si necesita algo más, envíeme un mensaje.👋"});
+		}
+		else
+		{
+			response.put("action","reply");
+			response.put("replies",{"¿En qué más puedo ayudarte?"});
+			response.put("suggestions",{"Preguntas tecnicas","Ya hice mi pedido","Productos y servicios","Compra"});
+		}
+	}
+	if(pedido.equalsIgnoreCase("Cancelacion o reclamacion"))
+	{
+		if(!answers.containsKey("elsepart"))
+		{
+			question = {"name":"elsepart","replies":{"Envíe un correo electrónico con el número de pedido con su reclamación o devolución a info@rbkollorsusa.com","¿Necesitas más ayuda?"},"input":{"type":"select","options":{"Si, necesito ayuda","No, gracias"}}};
+			response.put("questions",{question});
+		}
+		else if(answers.get("elsepart").get("text") == "No, gracias")
+		{
+			response.put("action","end");
+			response.put("replies",{"¡OKAY! Nos vemos más tarde. Si necesita algo más, envíeme un mensaje.👋"});
+		}
+		else
+		{
+			response.put("action","reply");
+			response.put("replies",{"¿En qué más puedo ayudarte?"});
+			response.put("suggestions",{"Preguntas tecnicas","Ya hice mi pedido","Productos y servicios","Compra"});
+		}
+	}
+	else if(pedido == "labios")
+	{
+		response.put("action","context");
+		response.put("context_id","labios");
+		question = {"name":"labios","replies":{"[KIT LIPS](https://www.rbkollorsusa.com/products/kit-lips/2346235000000071048?variant=2346235000000071044)","[RED SAND 15ML](https://www.rbkollorsusa.com/products/red-sand-15ml/2346235000000071332?variant=2346235000000071328)","[FULL LIPS](https://www.rbkollorsusa.com/products/full-lips-15ml/2346235000000071520?variant=2346235000000071516)","[DARLING 15ML](https://www.rbkollorsusa.com/products/darling-15ml/2346235000000071548?variant=2346235000000071544)","[PENELOPE 15ML](https://www.rbkollorsusa.com/products/penelope-15ml/2346235000000071586?variant=2346235000000071582)","[RUBY 15ML](https://www.rbkollorsusa.com/products/ruby-15ml/2346235000000071624?variant=2346235000000071620)","[RED VELVET 15ML](https://www.rbkollorsusa.com/products/red-velvet-15ml/2346235000000071662?variant=2346235000000071658)","[RED ROSE 15ML](https://www.rbkollorsusa.com/products/red-rose-15ml/2346235000000071690?variant=2346235000000071686)","[PEACH 15ML](https://www.rbkollorsusa.com/products/peach-15ml/2346235000000071718?variant=2346235000000071714)","[UTOPIA 15ML](https://www.rbkollorsusa.com/products/utopia-15ml/2346235000000071746?variant=2346235000000071742)","[TRUE LOVE 15ML](https://www.rbkollorsusa.com/products/true-love-15ml/2346235000000071774?variant=2346235000000071770)","[RED LIFE 15ML](https://www.rbkollorsusa.com/products/red-life-15ml/2346235000000071812?variant=2346235000000071808)","[DILUENT 15ML](https://www.rbkollorsusa.com/products/diluent-15ml/2346235000000071840?variant=2346235000000071836)","[TERRACOTAA 15ML](https://www.rbkollorsusa.com/products/terracotta-15ml/2346235000000414139?variant=2346235000000414135)","[SAN 15ML](https://www.rbkollorsusa.com/products/san-15ml/2346235000000727014?variant=2346235000000727014)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+		response.put("questions",{question});
+	}
+	else if(pedido == "cejas")
+	{
+		response.put("action","context");
+		response.put("context_id","cejas");
+		question = {"name":"cejas","replies":{"[KIT BEGINNERS](https://www.rbkollorsusa.com/products/kit-beginners/2346235000000071012?variant=2346235000000071008)","[KIT MIAMI](https://www.rbkollorsusa.com/products/kit-miami/2346235000000071076?variant=2346235000000071072)","[JAMBLACK 15ML](https://www.rbkollorsusa.com/products/jamblack-15ml/2346235000000071228?variant=2346235000000071224)","[JAMBO 15ML](https://www.rbkollorsusa.com/products/jambo-15ml/2346235000000071266?variant=2346235000000071262)","[BLOND 15ML](https://www.rbkollorsusa.com/products/blond-15ml/2346235000000071294?variant=2346235000000071290)","[HOT 15ML](https://www.rbkollorsusa.com/products/hot-15ml/2346235000000071360?variant=2346235000000071356)","[UNIVERSAL 15ML](https://www.rbkollorsusa.com/products/universal-15ml/2346235000000071388?variant=2346235000000071384)","[OMBRE-2 15ML](https://www.rbkollorsusa.com/products/ombré-2-15ml/2346235000000071416?variant=2346235000000071412)","[OMBRE-1 15ML](https://www.rbkollorsusa.com/products/ombré-1-15ml/2346235000000071454?variant=2346235000000071450)","[HONEY 15ML](https://www.rbkollorsusa.com/products/honey-15ml/2346235000000071492?variant=2346235000000071488)","[TOTAL BLACK 15ML](https://www.rbkollorsusa.com/products/total-black-15ml/2346235000000071892?variant=2346235000000071888)","[BLOND LIGHT 15ML](https://www.rbkollorsusa.com/products/blond-light-15ml/2346235000000414061?variant=2346235000000414057)","[ILUMINADOR 15ML](https://www.rbkollorsusa.com/products/iluminador-15ml/2346235000000737177?variant=2346235000000737173)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+		response.put("questions",{question});
+	}
+	else if(pedido == "inorganico")
+	{
+		response.put("action","context");
+		response.put("context_id","inorganico");
+		question = {"name":"inorganico","replies":{"[SHADOW EXTA LIGHT](http://www.rbkollorsusa.com/products/inorganic-shadow-extra-light-15ml/2346235000000838111)","[SHADOW LIGHT](http://www.rbkollorsusa.com/products/b1782b18e7/2346235000000840304)","[BLEND RB 15ML](http://www.rbkollorsusa.com/products/inorganic-blend-15ml/2346235000000840285)","[OMBRE LINE RB 15ML](http://www.rbkollorsusa.com/products/inorganic-ombre-line-15ml/2346235000000840258)","[BROWNIE EXTRA DARK RB 15 ML](http://www.rbkollorsusa.com/products/inorganic-brownie-extra-dark-15ml/2346235000000840239)","[ICE REPAIR RB 15ML](http://www.rbkollorsusa.com/products/inorganic-ice-repair-15ml/2346235000000840207)","[BROWNIE RB 15ML](http://www.rbkollorsusa.com/products/inorganic-brownie-15ml/2346235000000840138)","[HOT REPAIR RB 15ML](http://www.rbkollorsusa.com/products/inorganic-hot-repair-15ml/2346235000000840119)","[ODENSE RB 15ML](http://www.rbkollorsusa.com/products/inorganic-odense-15ml/2346235000000840157)","[EVORA 15ML](http://www.rbkollorsusa.com/products/inorganic-evora-15ml/2346235000000840176)","[WHITE RB 15ML](http://www.rbkollorsusa.com/products/inorganic-white-15ml/2346235000000840226)","[VIENA 15ML](http://www.rbkollorsusa.com/products/h75a23fc30/2346235000000858964)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+		response.put("questions",{question});
+	}
+	else if(pedido == "piel")
+	{
+		response.put("action","context");
+		response.put("context_id","piel");
+		question = {"name":"piel","replies":{"[SKIN-1 15ML](https://www.rbkollorsusa.com/products/skin-1/2346235000000737003?variant=2346235000000737005)","[SKIN-2 15ML](https://www.rbkollorsusa.com/products/skin-2-15ml/2346235000000737045?variant=2346235000000737041)","[SKIN-3 15ML](https://www.rbkollorsusa.com/products/skin-3-15ml/2346235000000737087?variant=2346235000000737083)","[SKIN-4 15ML](https://www.rbkollorsusa.com/products/skin-4-15ml/2346235000000737119?variant=2346235000000737115)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+		response.put("questions",{question});
+	}
+	else if(pedido == "modificadores")
+	{
+		response.put("action","context");
+		response.put("context_id","modificadores");
+		question = {"name":"modificadores","replies":{"[PH DENSE 15ML](https://www.rbkollorsusa.com/products/ph-dense-15g/2346235000000414097?variant=2346235000000414093)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+		response.put("questions",{question});
+	}
+	else if(pedido == "caliente")
+	{
+		response.put("action","context");
+		response.put("context_id","caliente");
+		question = {"name":"caliente","replies":{"[HOT 15ML](https://www.rbkollorsusa.com/products/hot-15ml/2346235000000071360?variant=2346235000000071356)","[HOT REPAIR RB 15ML(INORGANIC)](http://www.rbkollorsusa.com/products/inorganic-hot-repair-15ml/2346235000000840119)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+		response.put("questions",{question});
+	}
+	else if(pedido == "equipo")
+	{
+		response.put("action","context");
+		response.put("context_id","equipo");
+		question = {"name":"equipo","replies":{"[KIT BEGINNERS](https://www.rbkollorsusa.com/products/kit-beginners/2346235000000071012?variant=2346235000000071008)","[KIT LIPS](https://www.rbkollorsusa.com/products/kit-lips/2346235000000071048?variant=2346235000000071044)","[KIT MIAMI](https://www.rbkollorsusa.com/products/kit-miami/2346235000000071076?variant=2346235000000071072)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+		response.put("questions",{question});
+	}
+	else if(pedido == "rojo")
+	{
+		response.put("action","context");
+		response.put("context_id","rojo");
+		question = {"name":"rojo","replies":{"[RED SAND 15ML](https://www.rbkollorsusa.com/products/red-sand-15ml/2346235000000071332?variant=2346235000000071328)","[RED VELVET 15ML](https://www.rbkollorsusa.com/products/red-velvet-15ml/2346235000000071662?variant=2346235000000071658)","[RED ROSE 15ML](https://www.rbkollorsusa.com/products/red-rose-15ml/2346235000000071690?variant=2346235000000071686)","[RED LIFE 15ML](https://www.rbkollorsusa.com/products/red-life-15ml/2346235000000071812?variant=2346235000000071808)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+		response.put("questions",{question});
+	}
+}
+else if(context_id.equals("productos"))
+{
+	productos = answers.get("productos").get("text");
+	if(productos.equalsIgnoreCase("Color de labios"))
+	{
+		if(!answers.containsKey("elsepart"))
+		{
+			question = {"name":"elsepart","replies":{"Vea nuestro blog sobre [Color de labios](https://www.rbkollorsusa.com/blogs/post/lip-neutralization-color)","¿Necesitas más ayuda?"},"input":{"type":"select","options":{"Sí, necesito ayuda","No, gracias"}}};
+			response.put("questions",{question});
+		}
+		else if(answers.get("elsepart").get("text") == "No, gracias")
+		{
+			response.put("action","end");
+			response.put("replies",{"¡OKAY! Nos vemos más tarde. Si necesita algo más, envíeme un mensaje.👋"});
+		}
+		else
+		{
+			response.put("action","reply");
+			response.put("replies",{"¿En qué más puedo ayudarte?"});
+			response.put("suggestions",{"Preguntas tecnicas","Ya hice mi pedido","Productos y servicios","Compra"});
+		}
+	}
+	if(productos.equalsIgnoreCase("Color de cejas"))
+	{
+		if(!answers.containsKey("elsepart"))
+		{
+			question = {"name":"elsepart","replies":{"Vea nuestro blog sobre [Color de cejas](http://blog.rbkollors.com.br/neutralizacao-de-cor-de-sobrancelhas-rbkollors/)","¿Necesitas más ayuda?"},"input":{"type":"select","options":{"Sí, necesito ayuda","No, gracias"}}};
+			response.put("questions",{question});
+		}
+		else if(answers.get("elsepart").get("text") == "No, gracias")
+		{
+			response.put("action","end");
+			response.put("replies",{"¡OKAY! Nos vemos más tarde. Si necesita algo más, envíeme un mensaje.👋"});
+		}
+		else
+		{
+			response.put("action","reply");
+			response.put("replies",{"¿En qué más puedo ayudarte?"});
+			response.put("suggestions",{"Preguntas tecnicas","Ya hice mi pedido","Productos y servicios","Compra"});
+		}
+	}
+	if(productos.equalsIgnoreCase("Agotado"))
+	{
+		if(!answers.containsKey("elsepart"))
+		{
+			question = {"name":"elsepart","replies":{"Los productos agotados pronto serán reemplazados, siga nuestras redes sociales para obtener más información","[Facebook](https://www.facebook.com/rbkollorsusa/)","[Instagram](https://www.instagram.com/rbkollorsusa/)","[Youtube](https://www.youtube.com/channel/UCyqXMgFN4dxkcY47aE_l_ZQ)","¿Necesitas más ayuda?"},"input":{"type":"select","options":{"Sí, necesito ayuda","No, gracias"}}};
+			response.put("questions",{question});
+		}
+		else if(answers.get("elsepart").get("text") == "No, gracias")
+		{
+			response.put("action","end");
+			response.put("replies",{"¡OKAY! Nos vemos más tarde. Si necesita algo más, envíeme un mensaje.👋"});
+		}
+		else
+		{
+			response.put("action","reply");
+			response.put("replies",{"¿En qué más puedo ayudarte?"});
+			response.put("suggestions",{"Preguntas tecnicas","Ya hice mi pedido","Productos y servicios","Compra"});
+		}
+	}
+	if(productos.equalsIgnoreCase("Representantes/Quiero ser un representante"))
+	{
+		if(!answers.containsKey("elsepart"))
+		{
+			question = {"name":"elsepart","replies":{"Si tiene la intención de convertirse en representante, complete este formulario [English](https://bit.ly/rbkollorsdistributor)","Por favor, llene esta forma [Spanish](https://bit.ly/rbkollorsmayorista)","¿Necesitas más ayuda?"},"input":{"type":"select","options":{"Sí, necesito ayuda","No, gracias"}}};
+			response.put("questions",{question});
+		}
+		else if(answers.get("elsepart").get("text") == "No, gracias")
+		{
+			response.put("action","end");
+			response.put("replies",{"¡OKAY! Nos vemos más tarde. Si necesita algo más, envíeme un mensaje.👋"});
+		}
+		else
+		{
+			response.put("action","reply");
+			response.put("replies",{"¿En qué más puedo ayudarte?"});
+			response.put("suggestions",{"Preguntas tecnicas","Ya hice mi pedido","Productos y servicios","Compra"});
+		}
+	}
+	else if(productos == "labios")
+	{
+		response.put("action","context");
+		response.put("context_id","labios");
+		question = {"name":"labios","replies":{"[KIT LIPS](https://www.rbkollorsusa.com/products/kit-lips/2346235000000071048?variant=2346235000000071044)","[RED SAND 15ML](https://www.rbkollorsusa.com/products/red-sand-15ml/2346235000000071332?variant=2346235000000071328)","[FULL LIPS](https://www.rbkollorsusa.com/products/full-lips-15ml/2346235000000071520?variant=2346235000000071516)","[DARLING 15ML](https://www.rbkollorsusa.com/products/darling-15ml/2346235000000071548?variant=2346235000000071544)","[PENELOPE 15ML](https://www.rbkollorsusa.com/products/penelope-15ml/2346235000000071586?variant=2346235000000071582)","[RUBY 15ML](https://www.rbkollorsusa.com/products/ruby-15ml/2346235000000071624?variant=2346235000000071620)","[RED VELVET 15ML](https://www.rbkollorsusa.com/products/red-velvet-15ml/2346235000000071662?variant=2346235000000071658)","[RED ROSE 15ML](https://www.rbkollorsusa.com/products/red-rose-15ml/2346235000000071690?variant=2346235000000071686)","[PEACH 15ML](https://www.rbkollorsusa.com/products/peach-15ml/2346235000000071718?variant=2346235000000071714)","[UTOPIA 15ML](https://www.rbkollorsusa.com/products/utopia-15ml/2346235000000071746?variant=2346235000000071742)","[TRUE LOVE 15ML](https://www.rbkollorsusa.com/products/true-love-15ml/2346235000000071774?variant=2346235000000071770)","[RED LIFE 15ML](https://www.rbkollorsusa.com/products/red-life-15ml/2346235000000071812?variant=2346235000000071808)","[DILUENT 15ML](https://www.rbkollorsusa.com/products/diluent-15ml/2346235000000071840?variant=2346235000000071836)","[TERRACOTAA 15ML](https://www.rbkollorsusa.com/products/terracotta-15ml/2346235000000414139?variant=2346235000000414135)","[SAN 15ML](https://www.rbkollorsusa.com/products/san-15ml/2346235000000727014?variant=2346235000000727014)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+		response.put("questions",{question});
+	}
+	else if(productos == "cejas")
+	{
+		response.put("action","context");
+		response.put("context_id","cejas");
+		question = {"name":"cejas","replies":{"[KIT BEGINNERS](https://www.rbkollorsusa.com/products/kit-beginners/2346235000000071012?variant=2346235000000071008)","[KIT MIAMI](https://www.rbkollorsusa.com/products/kit-miami/2346235000000071076?variant=2346235000000071072)","[JAMBLACK 15ML](https://www.rbkollorsusa.com/products/jamblack-15ml/2346235000000071228?variant=2346235000000071224)","[JAMBO 15ML](https://www.rbkollorsusa.com/products/jambo-15ml/2346235000000071266?variant=2346235000000071262)","[BLOND 15ML](https://www.rbkollorsusa.com/products/blond-15ml/2346235000000071294?variant=2346235000000071290)","[HOT 15ML](https://www.rbkollorsusa.com/products/hot-15ml/2346235000000071360?variant=2346235000000071356)","[UNIVERSAL 15ML](https://www.rbkollorsusa.com/products/universal-15ml/2346235000000071388?variant=2346235000000071384)","[OMBRE-2 15ML](https://www.rbkollorsusa.com/products/ombré-2-15ml/2346235000000071416?variant=2346235000000071412)","[OMBRE-1 15ML](https://www.rbkollorsusa.com/products/ombré-1-15ml/2346235000000071454?variant=2346235000000071450)","[HONEY 15ML](https://www.rbkollorsusa.com/products/honey-15ml/2346235000000071492?variant=2346235000000071488)","[TOTAL BLACK 15ML](https://www.rbkollorsusa.com/products/total-black-15ml/2346235000000071892?variant=2346235000000071888)","[BLOND LIGHT 15ML](https://www.rbkollorsusa.com/products/blond-light-15ml/2346235000000414061?variant=2346235000000414057)","[ILUMINADOR 15ML](https://www.rbkollorsusa.com/products/iluminador-15ml/2346235000000737177?variant=2346235000000737173)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+		response.put("questions",{question});
+	}
+	else if(productos == "inorganico")
+	{
+		response.put("action","context");
+		response.put("context_id","inorganico");
+		question = {"name":"inorganico","replies":{"[SHADOW EXTA LIGHT](http://www.rbkollorsusa.com/products/inorganic-shadow-extra-light-15ml/2346235000000838111)","[SHADOW LIGHT](http://www.rbkollorsusa.com/products/b1782b18e7/2346235000000840304)","[BLEND RB 15ML](http://www.rbkollorsusa.com/products/inorganic-blend-15ml/2346235000000840285)","[OMBRE LINE RB 15ML](http://www.rbkollorsusa.com/products/inorganic-ombre-line-15ml/2346235000000840258)","[BROWNIE EXTRA DARK RB 15 ML](http://www.rbkollorsusa.com/products/inorganic-brownie-extra-dark-15ml/2346235000000840239)","[ICE REPAIR RB 15ML](http://www.rbkollorsusa.com/products/inorganic-ice-repair-15ml/2346235000000840207)","[BROWNIE RB 15ML](http://www.rbkollorsusa.com/products/inorganic-brownie-15ml/2346235000000840138)","[HOT REPAIR RB 15ML](http://www.rbkollorsusa.com/products/inorganic-hot-repair-15ml/2346235000000840119)","[ODENSE RB 15ML](http://www.rbkollorsusa.com/products/inorganic-odense-15ml/2346235000000840157)","[EVORA 15ML](http://www.rbkollorsusa.com/products/inorganic-evora-15ml/2346235000000840176)","[WHITE RB 15ML](http://www.rbkollorsusa.com/products/inorganic-white-15ml/2346235000000840226)","[VIENA 15ML](http://www.rbkollorsusa.com/products/h75a23fc30/2346235000000858964)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+		response.put("questions",{question});
+	}
+	else if(productos == "piel")
+	{
+		response.put("action","context");
+		response.put("context_id","piel");
+		question = {"name":"piel","replies":{"[SKIN-1 15ML](https://www.rbkollorsusa.com/products/skin-1/2346235000000737003?variant=2346235000000737005)","[SKIN-2 15ML](https://www.rbkollorsusa.com/products/skin-2-15ml/2346235000000737045?variant=2346235000000737041)","[SKIN-3 15ML](https://www.rbkollorsusa.com/products/skin-3-15ml/2346235000000737087?variant=2346235000000737083)","[SKIN-4 15ML](https://www.rbkollorsusa.com/products/skin-4-15ml/2346235000000737119?variant=2346235000000737115)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+		response.put("questions",{question});
+	}
+	else if(productos == "modificadores")
+	{
+		response.put("action","context");
+		response.put("context_id","modificadores");
+		question = {"name":"modificadores","replies":{"[PH DENSE 15ML](https://www.rbkollorsusa.com/products/ph-dense-15g/2346235000000414097?variant=2346235000000414093)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+		response.put("questions",{question});
+	}
+	else if(productos == "caliente")
+	{
+		response.put("action","context");
+		response.put("context_id","caliente");
+		question = {"name":"caliente","replies":{"[HOT 15ML](https://www.rbkollorsusa.com/products/hot-15ml/2346235000000071360?variant=2346235000000071356)","[HOT REPAIR RB 15ML(INORGANIC)](http://www.rbkollorsusa.com/products/inorganic-hot-repair-15ml/2346235000000840119)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+		response.put("questions",{question});
+	}
+	else if(productos == "equipo")
+	{
+		response.put("action","context");
+		response.put("context_id","equipo");
+		question = {"name":"equipo","replies":{"[KIT BEGINNERS](https://www.rbkollorsusa.com/products/kit-beginners/2346235000000071012?variant=2346235000000071008)","[KIT LIPS](https://www.rbkollorsusa.com/products/kit-lips/2346235000000071048?variant=2346235000000071044)","[KIT MIAMI](https://www.rbkollorsusa.com/products/kit-miami/2346235000000071076?variant=2346235000000071072)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+		response.put("questions",{question});
+	}
+	else if(productos == "rojo")
+	{
+		response.put("action","context");
+		response.put("context_id","rojo");
+		question = {"name":"rojo","replies":{"[RED SAND 15ML](https://www.rbkollorsusa.com/products/red-sand-15ml/2346235000000071332?variant=2346235000000071328)","[RED VELVET 15ML](https://www.rbkollorsusa.com/products/red-velvet-15ml/2346235000000071662?variant=2346235000000071658)","[RED ROSE 15ML](https://www.rbkollorsusa.com/products/red-rose-15ml/2346235000000071690?variant=2346235000000071686)","[RED LIFE 15ML](https://www.rbkollorsusa.com/products/red-life-15ml/2346235000000071812?variant=2346235000000071808)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+		response.put("questions",{question});
+	}
+}
+else if(context_id.equals("compra"))
+{
+	compra = answers.get("compra").get("text");
+	if(compra.equalsIgnoreCase("Metodos de pago"))
+	{
+		if(!answers.containsKey("elsepart"))
+		{
+			question = {"name":"elsepart","replies":{"Tarjetas de crédito: Visa, Mastercard, American Express, Discover, Diners Club, e JCB","PayPal","Bank of America Transfer","¿Necesitas más ayuda?"},"input":{"type":"select","options":{"Sí, necesito ayuda","No, gracias"}}};
+			response.put("questions",{question});
+		}
+		else if(answers.get("elsepart").get("text") == "No, gracias")
+		{
+			response.put("action","end");
+			response.put("replies",{"¡OKAY! Nos vemos más tarde. Si necesita algo más, envíeme un mensaje.👋"});
+		}
+		else
+		{
+			response.put("action","reply");
+			response.put("replies",{"¿En qué más puedo ayudarte?"});
+			response.put("suggestions",{"Preguntas tecnicas","Ya hice mi pedido","Productos y servicios","Compra"});
+		}
+	}
+	if(compra.equalsIgnoreCase("Politica de envio y devolucion"))
+	{
+		if(!answers.containsKey("elsepart"))
+		{
+			question = {"name":"elsepart","replies":{"Nosotras tenemos una [Política de entrega y devolución](https://www.rbkollorsusa.com/our-policy) respondiendo varias preguntas y quejas sobre entregas","¿Necesitas más ayuda?"},"input":{"type":"select","options":{"Sí, necesito ayuda "," No, gracias"}}};
+			response.put("questions",{question});
+		}
+		else if(answers.get("elsepart").get("text") == "No, gracias")
+		{
+			response.put("action","end");
+			response.put("replies",{"¡OKAY! Nos vemos más tarde. Si necesita algo más, envíeme un mensaje.👋"});
+		}
+		else
+		{
+			response.put("action","reply");
+			response.put("replies",{"¿En qué más puedo ayudarte?"});
+			response.put("suggestions",{"Preguntas tecnicas","Ya hice mi pedido","Productos y servicios","Compra"});
+		}
+	}
+	if(compra.equalsIgnoreCase("Cupones de descuento disponibles"))
+	{
+		if(!answers.containsKey("elsepart"))
+		{
+			question = {"name":"elsepart","replies":{"Cuando compre de 4 a 9 pigmentos use el cupón *SPECIALRB*","Cuando compre 10 pigmentos o más use el cupón *MEGARB*","Antes de finalizar, coloque el cupón correspondiente a su compra","Necesitas más ayuda"},"input":{"type":"select","options":{"Sí, necesito ayuda","No, gracias"}}};
+			response.put("questions",{question});
+		}
+		else if(answers.get("elsepart").get("text") == "No, gracias")
+		{
+			response.put("action","end");
+			response.put("replies",{"¡OKAY! Nos vemos más tarde. Si necesita algo más, envíeme un mensaje.👋"});
+		}
+		else
+		{
+			response.put("action","reply");
+			response.put("replies",{"¿En qué más puedo ayudarte?"});
+			response.put("suggestions",{"Preguntas tecnicas","Ya hice mi pedido","Productos y servicios","Compra"});
+		}
+	}
+	else if(compra == "labios")
+	{
+		response.put("action","context");
+		response.put("context_id","labios");
+		question = {"name":"labios","replies":{"[KIT LIPS](https://www.rbkollorsusa.com/products/kit-lips/2346235000000071048?variant=2346235000000071044)","[RED SAND 15ML](https://www.rbkollorsusa.com/products/red-sand-15ml/2346235000000071332?variant=2346235000000071328)","[FULL LIPS](https://www.rbkollorsusa.com/products/full-lips-15ml/2346235000000071520?variant=2346235000000071516)","[DARLING 15ML](https://www.rbkollorsusa.com/products/darling-15ml/2346235000000071548?variant=2346235000000071544)","[PENELOPE 15ML](https://www.rbkollorsusa.com/products/penelope-15ml/2346235000000071586?variant=2346235000000071582)","[RUBY 15ML](https://www.rbkollorsusa.com/products/ruby-15ml/2346235000000071624?variant=2346235000000071620)","[RED VELVET 15ML](https://www.rbkollorsusa.com/products/red-velvet-15ml/2346235000000071662?variant=2346235000000071658)","[RED ROSE 15ML](https://www.rbkollorsusa.com/products/red-rose-15ml/2346235000000071690?variant=2346235000000071686)","[PEACH 15ML](https://www.rbkollorsusa.com/products/peach-15ml/2346235000000071718?variant=2346235000000071714)","[UTOPIA 15ML](https://www.rbkollorsusa.com/products/utopia-15ml/2346235000000071746?variant=2346235000000071742)","[TRUE LOVE 15ML](https://www.rbkollorsusa.com/products/true-love-15ml/2346235000000071774?variant=2346235000000071770)","[RED LIFE 15ML](https://www.rbkollorsusa.com/products/red-life-15ml/2346235000000071812?variant=2346235000000071808)","[DILUENT 15ML](https://www.rbkollorsusa.com/products/diluent-15ml/2346235000000071840?variant=2346235000000071836)","[TERRACOTAA 15ML](https://www.rbkollorsusa.com/products/terracotta-15ml/2346235000000414139?variant=2346235000000414135)","[SAN 15ML](https://www.rbkollorsusa.com/products/san-15ml/2346235000000727014?variant=2346235000000727014)","¿Necesitas más ayuda?"},"input":{"type":"select","options":{"Sí, necesito ayuda","No, gracias"}}};
+		response.put("questions",{question});
+	}
+	else if(compra == "cejas")
+	{
+		response.put("action","context");
+		response.put("context_id","cejas");
+		question = {"name":"cejas","replies":{"[KIT BEGINNERS](https://www.rbkollorsusa.com/products/kit-beginners/2346235000000071012?variant=2346235000000071008)","[KIT MIAMI](https://www.rbkollorsusa.com/products/kit-miami/2346235000000071076?variant=2346235000000071072)","[JAMBLACK 15ML](https://www.rbkollorsusa.com/products/jamblack-15ml/2346235000000071228?variant=2346235000000071224)","[JAMBO 15ML](https://www.rbkollorsusa.com/products/jambo-15ml/2346235000000071266?variant=2346235000000071262)","[BLOND 15ML](https://www.rbkollorsusa.com/products/blond-15ml/2346235000000071294?variant=2346235000000071290)","[HOT 15ML](https://www.rbkollorsusa.com/products/hot-15ml/2346235000000071360?variant=2346235000000071356)","[UNIVERSAL 15ML](https://www.rbkollorsusa.com/products/universal-15ml/2346235000000071388?variant=2346235000000071384)","[OMBRE-2 15ML](https://www.rbkollorsusa.com/products/ombré-2-15ml/2346235000000071416?variant=2346235000000071412)","[OMBRE-1 15ML](https://www.rbkollorsusa.com/products/ombré-1-15ml/2346235000000071454?variant=2346235000000071450)","[HONEY 15ML](https://www.rbkollorsusa.com/products/honey-15ml/2346235000000071492?variant=2346235000000071488)","[TOTAL BLACK 15ML](https://www.rbkollorsusa.com/products/total-black-15ml/2346235000000071892?variant=2346235000000071888)","[BLOND LIGHT 15ML](https://www.rbkollorsusa.com/products/blond-light-15ml/2346235000000414061?variant=2346235000000414057)","[ILUMINADOR 15ML](https://www.rbkollorsusa.com/products/iluminador-15ml/2346235000000737177?variant=2346235000000737173)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+		response.put("questions",{question});
+	}
+	else if(compra == "inorganico")
+	{
+		response.put("action","context");
+		response.put("context_id","inorganico");
+		question = {"name":"inorganico","replies":{"[SHADOW EXTA LIGHT](http://www.rbkollorsusa.com/products/inorganic-shadow-extra-light-15ml/2346235000000838111)","[SHADOW LIGHT](http://www.rbkollorsusa.com/products/b1782b18e7/2346235000000840304)","[BLEND RB 15ML](http://www.rbkollorsusa.com/products/inorganic-blend-15ml/2346235000000840285)","[OMBRE LINE RB 15ML](http://www.rbkollorsusa.com/products/inorganic-ombre-line-15ml/2346235000000840258)","[BROWNIE EXTRA DARK RB 15 ML](http://www.rbkollorsusa.com/products/inorganic-brownie-extra-dark-15ml/2346235000000840239)","[ICE REPAIR RB 15ML](http://www.rbkollorsusa.com/products/inorganic-ice-repair-15ml/2346235000000840207)","[BROWNIE RB 15ML](http://www.rbkollorsusa.com/products/inorganic-brownie-15ml/2346235000000840138)","[HOT REPAIR RB 15ML](http://www.rbkollorsusa.com/products/inorganic-hot-repair-15ml/2346235000000840119)","[ODENSE RB 15ML](http://www.rbkollorsusa.com/products/inorganic-odense-15ml/2346235000000840157)","[EVORA 15ML](http://www.rbkollorsusa.com/products/inorganic-evora-15ml/2346235000000840176)","[WHITE RB 15ML](http://www.rbkollorsusa.com/products/inorganic-white-15ml/2346235000000840226)","[VIENA 15ML](http://www.rbkollorsusa.com/products/h75a23fc30/2346235000000858964)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+		response.put("questions",{question});
+	}
+	else if(compra == "piel")
+	{
+		response.put("action","context");
+		response.put("context_id","piel");
+		question = {"name":"piel","replies":{"[SKIN-1 15ML](https://www.rbkollorsusa.com/products/skin-1/2346235000000737003?variant=2346235000000737005)","[SKIN-2 15ML](https://www.rbkollorsusa.com/products/skin-2-15ml/2346235000000737045?variant=2346235000000737041)","[SKIN-3 15ML](https://www.rbkollorsusa.com/products/skin-3-15ml/2346235000000737087?variant=2346235000000737083)","[SKIN-4 15ML](https://www.rbkollorsusa.com/products/skin-4-15ml/2346235000000737119?variant=2346235000000737115)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+		response.put("questions",{question});
+	}
+	else if(compra == "modificadores")
+	{
+		response.put("action","context");
+		response.put("context_id","modificadores");
+		question = {"name":"modificadores","replies":{"[PH DENSE 15ML](https://www.rbkollorsusa.com/products/ph-dense-15g/2346235000000414097?variant=2346235000000414093)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+		response.put("questions",{question});
+	}
+	else if(compra == "caliente")
+	{
+		response.put("action","context");
+		response.put("context_id","caliente");
+		question = {"name":"caliente","replies":{"[HOT 15ML](https://www.rbkollorsusa.com/products/hot-15ml/2346235000000071360?variant=2346235000000071356)","[HOT REPAIR RB 15ML(INORGANIC)](http://www.rbkollorsusa.com/products/inorganic-hot-repair-15ml/2346235000000840119)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+		response.put("questions",{question});
+	}
+	else if(compra == "equipo")
+	{
+		response.put("action","context");
+		response.put("context_id","equipo");
+		question = {"name":"equipo","replies":{"[KIT BEGINNERS](https://www.rbkollorsusa.com/products/kit-beginners/2346235000000071012?variant=2346235000000071008)","[KIT LIPS](https://www.rbkollorsusa.com/products/kit-lips/2346235000000071048?variant=2346235000000071044)","[KIT MIAMI](https://www.rbkollorsusa.com/products/kit-miami/2346235000000071076?variant=2346235000000071072)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+		response.put("questions",{question});
+	}
+	else if(compra == "rojo")
+	{
+		response.put("action","context");
+		response.put("context_id","rojo");
+		question = {"name":"rojo","replies":{"[RED SAND 15ML](https://www.rbkollorsusa.com/products/red-sand-15ml/2346235000000071332?variant=2346235000000071328)","[RED VELVET 15ML](https://www.rbkollorsusa.com/products/red-velvet-15ml/2346235000000071662?variant=2346235000000071658)","[RED ROSE 15ML](https://www.rbkollorsusa.com/products/red-rose-15ml/2346235000000071690?variant=2346235000000071686)","[RED LIFE 15ML](https://www.rbkollorsusa.com/products/red-life-15ml/2346235000000071812?variant=2346235000000071808)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+		response.put("questions",{question});
+	}
+}
+else if(context_id.equals("labios"))
+{
+	response.put("action","reply");
+	response.put("replies",{"¿En qué más puedo ayudarte?"});
+	response.put("suggestions",{"Preguntas tecnicas","Ya hice mi pedido","Productos y servicios","Compra"});
+}
+else if(context_id.equals("cejas"))
+{
+	response.put("action","reply");
+	response.put("replies",{"¿En qué más puedo ayudarte?"});
+	response.put("suggestions",{"Preguntas tecnicas","Ya hice mi pedido","Productos y servicios","Compra"});
+}
+else if(context_id.equals("inorganica"))
+{
+	response.put("action","reply");
+	response.put("replies",{"¿En qué más puedo ayudarte?"});
+	response.put("suggestions",{"Preguntas tecnicas","Ya hice mi pedido","Productos y servicios","Compra"});
+}
+else if(context_id.equals("piel"))
+{
+	response.put("action","reply");
+	response.put("replies",{"¿En qué más puedo ayudarte?"});
+	response.put("suggestions",{"Preguntas tecnicas","Ya hice mi pedido","Productos y servicios","Compra"});
+}
+else if(context_id.equals("modificadores"))
+{
+	response.put("action","reply");
+	response.put("replies",{"¿En qué más puedo ayudarte?"});
+	response.put("suggestions",{"Preguntas tecnicas","Ya hice mi pedido","Productos y servicios","Compra"});
+}
+else if(context_id.equals("caliente"))
+{
+	response.put("action","reply");
+	response.put("replies",{"¿En qué más puedo ayudarte?"});
+	response.put("suggestions",{"Preguntas tecnicas","Ya hice mi pedido","Productos y servicios","Compra"});
+}
+else if(context_id.equals("equipo"))
+{
+	response.put("action","reply");
+	response.put("replies",{"¿En qué más puedo ayudarte?"});
+	response.put("suggestions",{"Preguntas tecnicas","Ya hice mi pedido","Productos y servicios","Compra"});
+}
+else if(context_id.equals("rojo"))
+{
+	response.put("action","reply");
+	response.put("replies",{"¿En qué más puedo ayudarte?"});
+	response.put("suggestions",{"Preguntas tecnicas","Ya hice mi pedido","Productos y servicios","Compra"});
+}
+//ENGLISH
+else if(context_id.equals("technical"))
+{
+	tec = answers.get("technical").get("text");
+	if(tec.equalsIgnoreCase("Lip Color Neutralization"))
+	{
+		if(!answers.containsKey("elsepart"))
+		{
+			question = {"name":"elsepart","replies":{"Sure! You may want to check out the Blog on the topic of [Lip Color Neutralization](http://blog.rbkollors.com.br/neutralizacao-de-cor-de-labios-o-guia-completo-da-rbkollors/)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+			response.put("questions",{question});
+		}
+		else
+		{
+			response.put("action","reply");
+			response.put("replies",{"What else can I help you with?"});
+			response.put("suggestions",{"Technical questions","I already placed my order","Products/Services","Purchase"});
+		}
+	}
+	if(tec.equalsIgnoreCase("Neutralization of eyebrows color"))
+	{
+		if(!answers.containsKey("elsepart"))
+		{
+			question = {"name":"elsepart","replies":{"Sure! You may want to check out the Blog on the topic of [Neutralization of eyebrows color](http://blog.rbkollors.com.br/neutralizacao-de-cor-de-sobrancelhas-rbkollors/)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+			response.put("questions",{question});
+		}
+		else
+		{
+			response.put("action","reply");
+			response.put("replies",{"What else can I help you with?"});
+			response.put("suggestions",{"Technical questions","I already placed my order","Products/Services","Purchase"});
+		}
+	}
+	if(tec.equalsIgnoreCase("Pigment heating"))
+	{
+		if(!answers.containsKey("elsepart"))
+		{
+			question = {"name":"elsepart","replies":{"Sure! You may want to check out the Blog on the topic of [Pigment heating](https://www.rbkollorsusa.com/blogs/post/when-to-heat-rbkollors-pigments-which-are-already-hot-in-their-composition)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+			response.put("questions",{question});
+		}
+		else
+		{
+			response.put("action","reply");
+			response.put("replies",{"What else can I help you with?"});
+			response.put("suggestions",{"Technical questions","I already placed my order","Products/Services","Purchase"});
+		}
+	}
+	if(tec.equalsIgnoreCase("Others"))
+	{
+		if(!answers.containsKey("elsepart"))
+		{
+			question = {"name":"elsepart","replies":{"In this case you can send your question to info@rbkollorsusa.com","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+			response.put("questions",{question});
+		}
+		else
+		{
+			response.put("action","reply");
+			response.put("replies",{"What else can I help you with?"});
+			response.put("suggestions",{"Technical questions","I already placed my order","Products/Services","Purchase"});
+		}
+	}
+	else if(tec == "lips")
+	{
+		response.put("action","context");
+		response.put("context_id","lips");
+		question = {"name":"lips","replies":{"[KIT LIPS](https://www.rbkollorsusa.com/products/kit-lips/2346235000000071048?variant=2346235000000071044)","[RED SAND 15ML](https://www.rbkollorsusa.com/products/red-sand-15ml/2346235000000071332?variant=2346235000000071328)","[FULL LIPS](https://www.rbkollorsusa.com/products/full-lips-15ml/2346235000000071520?variant=2346235000000071516)","[DARLING 15ML](https://www.rbkollorsusa.com/products/darling-15ml/2346235000000071548?variant=2346235000000071544)","[PENELOPE 15ML](https://www.rbkollorsusa.com/products/penelope-15ml/2346235000000071586?variant=2346235000000071582)","[RUBY 15ML](https://www.rbkollorsusa.com/products/ruby-15ml/2346235000000071624?variant=2346235000000071620)","[RED VELVET 15ML](https://www.rbkollorsusa.com/products/red-velvet-15ml/2346235000000071662?variant=2346235000000071658)","[RED ROSE 15ML](https://www.rbkollorsusa.com/products/red-rose-15ml/2346235000000071690?variant=2346235000000071686)","[PEACH 15ML](https://www.rbkollorsusa.com/products/peach-15ml/2346235000000071718?variant=2346235000000071714)","[UTOPIA 15ML](https://www.rbkollorsusa.com/products/utopia-15ml/2346235000000071746?variant=2346235000000071742)","[TRUE LOVE 15ML](https://www.rbkollorsusa.com/products/true-love-15ml/2346235000000071774?variant=2346235000000071770)","[RED LIFE 15ML](https://www.rbkollorsusa.com/products/red-life-15ml/2346235000000071812?variant=2346235000000071808)","[DILUENT 15ML](https://www.rbkollorsusa.com/products/diluent-15ml/2346235000000071840?variant=2346235000000071836)","[TERRACOTAA 15ML](https://www.rbkollorsusa.com/products/terracotta-15ml/2346235000000414139?variant=2346235000000414135)","[SAN 15ML](https://www.rbkollorsusa.com/products/san-15ml/2346235000000727014?variant=2346235000000727014)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+		response.put("questions",{question});
+	}
+	else if(tec == "eyebrows")
+	{
+		response.put("action","context");
+		response.put("context_id","eyebrows");
+		question = {"name":"eyebrows","replies":{"[KIT BEGINNERS](https://www.rbkollorsusa.com/products/kit-beginners/2346235000000071012?variant=2346235000000071008)","[KIT MIAMI](https://www.rbkollorsusa.com/products/kit-miami/2346235000000071076?variant=2346235000000071072)","[JAMBLACK 15ML](https://www.rbkollorsusa.com/products/jamblack-15ml/2346235000000071228?variant=2346235000000071224)","[JAMBO 15ML](https://www.rbkollorsusa.com/products/jambo-15ml/2346235000000071266?variant=2346235000000071262)","[BLOND 15ML](https://www.rbkollorsusa.com/products/blond-15ml/2346235000000071294?variant=2346235000000071290)","[HOT 15ML](https://www.rbkollorsusa.com/products/hot-15ml/2346235000000071360?variant=2346235000000071356)","[UNIVERSAL 15ML](https://www.rbkollorsusa.com/products/universal-15ml/2346235000000071388?variant=2346235000000071384)","[OMBRE-2 15ML](https://www.rbkollorsusa.com/products/ombré-2-15ml/2346235000000071416?variant=2346235000000071412)","[OMBRE-1 15ML](https://www.rbkollorsusa.com/products/ombré-1-15ml/2346235000000071454?variant=2346235000000071450)","[HONEY 15ML](https://www.rbkollorsusa.com/products/honey-15ml/2346235000000071492?variant=2346235000000071488)","[TOTAL BLACK 15ML](https://www.rbkollorsusa.com/products/total-black-15ml/2346235000000071892?variant=2346235000000071888)","[BLOND LIGHT 15ML](https://www.rbkollorsusa.com/products/blond-light-15ml/2346235000000414061?variant=2346235000000414057)","[ILUMINADOR 15ML](https://www.rbkollorsusa.com/products/iluminador-15ml/2346235000000737177?variant=2346235000000737173)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+		response.put("questions",{question});
+	}
+	else if(tec == "inorganic")
+	{
+		response.put("action","context");
+		response.put("context_id","inorganic");
+		question = {"name":"inorganic","replies":{"[SHADOW EXTA LIGHT](http://www.rbkollorsusa.com/products/inorganic-shadow-extra-light-15ml/2346235000000838111)","[SHADOW LIGHT](http://www.rbkollorsusa.com/products/b1782b18e7/2346235000000840304)","[BLEND RB 15ML](http://www.rbkollorsusa.com/products/inorganic-blend-15ml/2346235000000840285)","[OMBRE LINE RB 15ML](http://www.rbkollorsusa.com/products/inorganic-ombre-line-15ml/2346235000000840258)","[BROWNIE EXTRA DARK RB 15 ML](http://www.rbkollorsusa.com/products/inorganic-brownie-extra-dark-15ml/2346235000000840239)","[ICE REPAIR RB 15ML](http://www.rbkollorsusa.com/products/inorganic-ice-repair-15ml/2346235000000840207)","[BROWNIE RB 15ML](http://www.rbkollorsusa.com/products/inorganic-brownie-15ml/2346235000000840138)","[HOT REPAIR RB 15ML](http://www.rbkollorsusa.com/products/inorganic-hot-repair-15ml/2346235000000840119)","[ODENSE RB 15ML](http://www.rbkollorsusa.com/products/inorganic-odense-15ml/2346235000000840157)","[EVORA 15ML](http://www.rbkollorsusa.com/products/inorganic-evora-15ml/2346235000000840176)","[WHITE RB 15ML](http://www.rbkollorsusa.com/products/inorganic-white-15ml/2346235000000840226)","[VIENA 15ML](http://www.rbkollorsusa.com/products/h75a23fc30/2346235000000858964)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+		response.put("questions",{question});
+	}
+	else if(tec == "skin")
+	{
+		response.put("action","context");
+		response.put("context_id","skin");
+		question = {"name":"skin","replies":{"[SKIN-1 15ML](https://www.rbkollorsusa.com/products/skin-1/2346235000000737003?variant=2346235000000737005)","[SKIN-2 15ML](https://www.rbkollorsusa.com/products/skin-2-15ml/2346235000000737045?variant=2346235000000737041)","[SKIN-3 15ML](https://www.rbkollorsusa.com/products/skin-3-15ml/2346235000000737087?variant=2346235000000737083)","[SKIN-4 15ML](https://www.rbkollorsusa.com/products/skin-4-15ml/2346235000000737119?variant=2346235000000737115)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+		response.put("questions",{question});
+	}
+	else if(tec == "modifyers")
+	{
+		response.put("action","context");
+		response.put("context_id","modifyers");
+		question = {"name":"modifyers","replies":{"[PH DENSE 15ML](https://www.rbkollorsusa.com/products/ph-dense-15g/2346235000000414097?variant=2346235000000414093)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+		response.put("questions",{question});
+	}
+	else if(tec == "hot")
+	{
+		response.put("action","context");
+		response.put("context_id","hot");
+		question = {"name":"hot","replies":{"[HOT 15ML](https://www.rbkollorsusa.com/products/hot-15ml/2346235000000071360?variant=2346235000000071356)","[HOT REPAIR RB 15ML(INORGANIC)](http://www.rbkollorsusa.com/products/inorganic-hot-repair-15ml/2346235000000840119)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+		response.put("questions",{question});
+	}
+	else if(tec == "kit")
+	{
+		response.put("action","context");
+		response.put("context_id","kit");
+		question = {"name":"kit","replies":{"[KIT BEGINNERS](https://www.rbkollorsusa.com/products/kit-beginners/2346235000000071012?variant=2346235000000071008)","[KIT LIPS](https://www.rbkollorsusa.com/products/kit-lips/2346235000000071048?variant=2346235000000071044)","[KIT MIAMI](https://www.rbkollorsusa.com/products/kit-miami/2346235000000071076?variant=2346235000000071072)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+		response.put("questions",{question});
+	}
+	else if(tec == "red")
+	{
+		response.put("action","context");
+		response.put("context_id","red");
+		question = {"name":"red","replies":{"[RED SAND 15ML](https://www.rbkollorsusa.com/products/red-sand-15ml/2346235000000071332?variant=2346235000000071328)","[RED VELVET 15ML](https://www.rbkollorsusa.com/products/red-velvet-15ml/2346235000000071662?variant=2346235000000071658)","[RED ROSE 15ML](https://www.rbkollorsusa.com/products/red-rose-15ml/2346235000000071690?variant=2346235000000071686)","[RED LIFE 15ML](https://www.rbkollorsusa.com/products/red-life-15ml/2346235000000071812?variant=2346235000000071808)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+		response.put("questions",{question});
+	}
+}
+else if(context_id.equals("order"))
+{
+	order = answers.get("order").get("text");
+	if(order.equalsIgnoreCase("Tracking code"))
+	{
+		if(!answers.containsKey("elsepart"))
+		{
+			question = {"name":"elsepart","replies":{"You will receive the code automatically in your email, please check your spam box or access the site go to my accounts and then on my orders","If you do not have the tracking code, please call an attendant to better assist you :)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+			response.put("questions",{question});
+		}
+		else if(answers.get("elsepart").get("text") == "Yes, I need help")
+		{
+			response.put("action","forward");
+			response.put("replies",{"Please wait while I forward the chat to agents"});
+		}
+		else
+		{
+			response = Map();
+			response.put("action","reply");
+			response.put("replies",{"Hello there! Looking for anything specific?"});
+			response.put("suggestions",{"Technical questions","I already placed my order","Products/Services","Purchase"});
+			return response;
+		}
+	}
+	if(order.equalsIgnoreCase("Delivery issues"))
+	{
+		if(!answers.containsKey("elsepart"))
+		{
+			question = {"name":"elsepart","replies":{"Please send an email with the order number and a photo of the event to info@rbkollorsusa.com","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+			response.put("questions",{question});
+		}
+		else
+		{
+			response = Map();
+			response.put("action","reply");
+			response.put("replies",{"Hello there! Looking for anything specific?"});
+			response.put("suggestions",{"Technical questions","I already placed my order","Products/Services","Purchase"});
+			return response;
+		}
+	}
+	if(order.equalsIgnoreCase("Cancellation or complaint"))
+	{
+		if(!answers.containsKey("elsepart"))
+		{
+			question = {"name":"elsepart","replies":{"Please send an email with the order number with your complaint or devolution to info@rbkollorsusa.com","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+			response.put("questions",{question});
+		}
+		else
+		{
+			response = Map();
+			response.put("action","reply");
+			response.put("replies",{"Hello there! Looking for anything specific?"});
+			response.put("suggestions",{"Technical questions","I already placed my order","Products/Services","Purchase"});
+			return response;
+		}
+	}
+	else if(order == "lips")
+	{
+		response.put("action","context");
+		response.put("context_id","lips");
+		question = {"name":"lips","replies":{"[KIT LIPS](https://www.rbkollorsusa.com/products/kit-lips/2346235000000071048?variant=2346235000000071044)","[RED SAND 15ML](https://www.rbkollorsusa.com/products/red-sand-15ml/2346235000000071332?variant=2346235000000071328)","[FULL LIPS](https://www.rbkollorsusa.com/products/full-lips-15ml/2346235000000071520?variant=2346235000000071516)","[DARLING 15ML](https://www.rbkollorsusa.com/products/darling-15ml/2346235000000071548?variant=2346235000000071544)","[PENELOPE 15ML](https://www.rbkollorsusa.com/products/penelope-15ml/2346235000000071586?variant=2346235000000071582)","[RUBY 15ML](https://www.rbkollorsusa.com/products/ruby-15ml/2346235000000071624?variant=2346235000000071620)","[RED VELVET 15ML](https://www.rbkollorsusa.com/products/red-velvet-15ml/2346235000000071662?variant=2346235000000071658)","[RED ROSE 15ML](https://www.rbkollorsusa.com/products/red-rose-15ml/2346235000000071690?variant=2346235000000071686)","[PEACH 15ML](https://www.rbkollorsusa.com/products/peach-15ml/2346235000000071718?variant=2346235000000071714)","[UTOPIA 15ML](https://www.rbkollorsusa.com/products/utopia-15ml/2346235000000071746?variant=2346235000000071742)","[TRUE LOVE 15ML](https://www.rbkollorsusa.com/products/true-love-15ml/2346235000000071774?variant=2346235000000071770)","[RED LIFE 15ML](https://www.rbkollorsusa.com/products/red-life-15ml/2346235000000071812?variant=2346235000000071808)","[DILUENT 15ML](https://www.rbkollorsusa.com/products/diluent-15ml/2346235000000071840?variant=2346235000000071836)","[TERRACOTAA 15ML](https://www.rbkollorsusa.com/products/terracotta-15ml/2346235000000414139?variant=2346235000000414135)","[SAN 15ML](https://www.rbkollorsusa.com/products/san-15ml/2346235000000727014?variant=2346235000000727014)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+		response.put("questions",{question});
+	}
+	else if(order == "eyebrows")
+	{
+		response.put("action","context");
+		response.put("context_id","eyebrows");
+		question = {"name":"eyebrows","replies":{"[KIT BEGINNERS](https://www.rbkollorsusa.com/products/kit-beginners/2346235000000071012?variant=2346235000000071008)","[KIT MIAMI](https://www.rbkollorsusa.com/products/kit-miami/2346235000000071076?variant=2346235000000071072)","[JAMBLACK 15ML](https://www.rbkollorsusa.com/products/jamblack-15ml/2346235000000071228?variant=2346235000000071224)","[JAMBO 15ML](https://www.rbkollorsusa.com/products/jambo-15ml/2346235000000071266?variant=2346235000000071262)","[BLOND 15ML](https://www.rbkollorsusa.com/products/blond-15ml/2346235000000071294?variant=2346235000000071290)","[HOT 15ML](https://www.rbkollorsusa.com/products/hot-15ml/2346235000000071360?variant=2346235000000071356)","[UNIVERSAL 15ML](https://www.rbkollorsusa.com/products/universal-15ml/2346235000000071388?variant=2346235000000071384)","[OMBRE-2 15ML](https://www.rbkollorsusa.com/products/ombré-2-15ml/2346235000000071416?variant=2346235000000071412)","[OMBRE-1 15ML](https://www.rbkollorsusa.com/products/ombré-1-15ml/2346235000000071454?variant=2346235000000071450)","[HONEY 15ML](https://www.rbkollorsusa.com/products/honey-15ml/2346235000000071492?variant=2346235000000071488)","[TOTAL BLACK 15ML](https://www.rbkollorsusa.com/products/total-black-15ml/2346235000000071892?variant=2346235000000071888)","[BLOND LIGHT 15ML](https://www.rbkollorsusa.com/products/blond-light-15ml/2346235000000414061?variant=2346235000000414057)","[ILUMINADOR 15ML](https://www.rbkollorsusa.com/products/iluminador-15ml/2346235000000737177?variant=2346235000000737173)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+		response.put("questions",{question});
+	}
+	else if(order == "inorganic")
+	{
+		response.put("action","context");
+		response.put("context_id","inorganic");
+		question = {"name":"inorganic","replies":{"[SHADOW EXTA LIGHT](http://www.rbkollorsusa.com/products/inorganic-shadow-extra-light-15ml/2346235000000838111)","[SHADOW LIGHT](http://www.rbkollorsusa.com/products/b1782b18e7/2346235000000840304)","[BLEND RB 15ML](http://www.rbkollorsusa.com/products/inorganic-blend-15ml/2346235000000840285)","[OMBRE LINE RB 15ML](http://www.rbkollorsusa.com/products/inorganic-ombre-line-15ml/2346235000000840258)","[BROWNIE EXTRA DARK RB 15 ML](http://www.rbkollorsusa.com/products/inorganic-brownie-extra-dark-15ml/2346235000000840239)","[ICE REPAIR RB 15ML](http://www.rbkollorsusa.com/products/inorganic-ice-repair-15ml/2346235000000840207)","[BROWNIE RB 15ML](http://www.rbkollorsusa.com/products/inorganic-brownie-15ml/2346235000000840138)","[HOT REPAIR RB 15ML](http://www.rbkollorsusa.com/products/inorganic-hot-repair-15ml/2346235000000840119)","[ODENSE RB 15ML](http://www.rbkollorsusa.com/products/inorganic-odense-15ml/2346235000000840157)","[EVORA 15ML](http://www.rbkollorsusa.com/products/inorganic-evora-15ml/2346235000000840176)","[WHITE RB 15ML](http://www.rbkollorsusa.com/products/inorganic-white-15ml/2346235000000840226)","[VIENA 15ML](http://www.rbkollorsusa.com/products/h75a23fc30/2346235000000858964)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+		response.put("questions",{question});
+	}
+	else if(order == "skin")
+	{
+		response.put("action","context");
+		response.put("context_id","skin");
+		question = {"name":"skin","replies":{"[SKIN-1 15ML](https://www.rbkollorsusa.com/products/skin-1/2346235000000737003?variant=2346235000000737005)","[SKIN-2 15ML](https://www.rbkollorsusa.com/products/skin-2-15ml/2346235000000737045?variant=2346235000000737041)","[SKIN-3 15ML](https://www.rbkollorsusa.com/products/skin-3-15ml/2346235000000737087?variant=2346235000000737083)","[SKIN-4 15ML](https://www.rbkollorsusa.com/products/skin-4-15ml/2346235000000737119?variant=2346235000000737115)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+		response.put("questions",{question});
+	}
+	else if(order == "modifyers")
+	{
+		response.put("action","context");
+		response.put("context_id","modifyers");
+		question = {"name":"modifyers","replies":{"[PH DENSE 15ML](https://www.rbkollorsusa.com/products/ph-dense-15g/2346235000000414097?variant=2346235000000414093)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+		response.put("questions",{question});
+	}
+	else if(order == "hot")
+	{
+		response.put("action","context");
+		response.put("context_id","hot");
+		question = {"name":"hot","replies":{"[HOT 15ML](https://www.rbkollorsusa.com/products/hot-15ml/2346235000000071360?variant=2346235000000071356)","[HOT REPAIR RB 15ML(INORGANIC)](http://www.rbkollorsusa.com/products/inorganic-hot-repair-15ml/2346235000000840119)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+		response.put("questions",{question});
+	}
+	else if(order == "kit")
+	{
+		response.put("action","context");
+		response.put("context_id","kit");
+		question = {"name":"kit","replies":{"[KIT BEGINNERS](https://www.rbkollorsusa.com/products/kit-beginners/2346235000000071012?variant=2346235000000071008)","[KIT LIPS](https://www.rbkollorsusa.com/products/kit-lips/2346235000000071048?variant=2346235000000071044)","[KIT MIAMI](https://www.rbkollorsusa.com/products/kit-miami/2346235000000071076?variant=2346235000000071072)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+		response.put("questions",{question});
+	}
+	else if(order == "red")
+	{
+		response.put("action","context");
+		response.put("context_id","red");
+		question = {"name":"red","replies":{"[RED SAND 15ML](https://www.rbkollorsusa.com/products/red-sand-15ml/2346235000000071332?variant=2346235000000071328)","[RED VELVET 15ML](https://www.rbkollorsusa.com/products/red-velvet-15ml/2346235000000071662?variant=2346235000000071658)","[RED ROSE 15ML](https://www.rbkollorsusa.com/products/red-rose-15ml/2346235000000071690?variant=2346235000000071686)","[RED LIFE 15ML](https://www.rbkollorsusa.com/products/red-life-15ml/2346235000000071812?variant=2346235000000071808)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+		response.put("questions",{question});
+	}
+}
+else if(context_id.equals("products"))
+{
+	products = answers.get("products").get("text");
+	if(products.equalsIgnoreCase("Lips-color"))
+	{
+		if(!answers.containsKey("elsepart"))
+		{
+			question = {"name":"elsepart","replies":{"See our blog about [Color Lips](http://blog.rbkollors.com.br/neutralizacao-de-cor-de-labios-o-guia-completo-da-rbkollors/)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+			response.put("questions",{question});
+		}
+		else if(answers.get("elsepart").get("text") == "No, Thank you")
+		{
+			response.put("action","end");
+			response.put("replies",{"OK! See you later. If you need anything else, please send me a message👋"});
+		}
+		else
+		{
+			response.put("action","reply");
+			response.put("replies",{"What else can I help you with?"});
+			response.put("suggestions",{"Technical questions","I already placed my order","Products/Services","Purchase"});
+		}
+	}
+	if(products.equalsIgnoreCase("Eyebrows-color"))
+	{
+		if(!answers.containsKey("elsepart"))
+		{
+			question = {"name":"elsepart","replies":{"See our blog about [Eyebrows-color](http://blog.rbkollors.com.br/neutralizacao-de-cor-de-sobrancelhas-rbkollors/)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+			response.put("questions",{question});
+		}
+		else if(answers.get("elsepart").get("text") == "No, Thank you")
+		{
+			response.put("action","end");
+			response.put("replies",{"OK! See you later. If you need anything else, please send me a message👋"});
+		}
+		else
+		{
+			response.put("action","reply");
+			response.put("replies",{"What else can I help you with?"});
+			response.put("suggestions",{"Technical questions","I already placed my order","Products/Services","Purchase"});
+		}
+	}
+	if(products.equalsIgnoreCase("Out of stock"))
+	{
+		if(!answers.containsKey("elsepart"))
+		{
+			question = {"name":"elsepart","replies":{"Products out of stock will soon be replaced, follow our social networks to learn more","[Facebook](https://www.facebook.com/rbkollors)","[Instagram](https://www.instagram.com/rbkollors/)","[Youtube](https://www.youtube.com/channel/UCyqXMgFN4dxkcY47aE_l_ZQ)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+			response.put("questions",{question});
+		}
+		else if(answers.get("elsepart").get("text") == "No, Thank you")
+		{
+			response.put("action","end");
+			response.put("replies",{"OK! See you later. If you need anything else, please send me a message👋"});
+		}
+		else
+		{
+			response.put("action","reply");
+			response.put("replies",{"What else can I help you with?"});
+			response.put("suggestions",{"Technical questions","I already placed my order","Products/Services","Purchase"});
+		}
+	}
+	if(products.equalsIgnoreCase("Representatives/I want to be a representative"))
+	{
+		if(!answers.containsKey("elsepart"))
+		{
+			question = {"name":"elsepart","replies":{"If you intend to become a representative, please fill out this form [English](https://bit.ly/rbkollorsdistributor)","Please fill out this form [Spanish](https://bit.ly/rbkollorsmayorista)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+			response.put("questions",{question});
+		}
+		else if(answers.get("elsepart").get("text") == "No, Thank you")
+		{
+			response.put("action","end");
+			response.put("replies",{"OK! See you later. If you need anything else, please send me a message👋"});
+		}
+		else
+		{
+			response.put("action","reply");
+			response.put("replies",{"What else can I help you with?"});
+			response.put("suggestions",{"Technical questions","I already placed my order","Products/Services","Purchase"});
+		}
+	}
+	else if(products == "lips")
+	{
+		response.put("action","context");
+		response.put("context_id","lips");
+		question = {"name":"lips","replies":{"[KIT LIPS](https://www.rbkollorsusa.com/products/kit-lips/2346235000000071048?variant=2346235000000071044)","[RED SAND 15ML](https://www.rbkollorsusa.com/products/red-sand-15ml/2346235000000071332?variant=2346235000000071328)","[FULL LIPS](https://www.rbkollorsusa.com/products/full-lips-15ml/2346235000000071520?variant=2346235000000071516)","[DARLING 15ML](https://www.rbkollorsusa.com/products/darling-15ml/2346235000000071548?variant=2346235000000071544)","[PENELOPE 15ML](https://www.rbkollorsusa.com/products/penelope-15ml/2346235000000071586?variant=2346235000000071582)","[RUBY 15ML](https://www.rbkollorsusa.com/products/ruby-15ml/2346235000000071624?variant=2346235000000071620)","[RED VELVET 15ML](https://www.rbkollorsusa.com/products/red-velvet-15ml/2346235000000071662?variant=2346235000000071658)","[RED ROSE 15ML](https://www.rbkollorsusa.com/products/red-rose-15ml/2346235000000071690?variant=2346235000000071686)","[PEACH 15ML](https://www.rbkollorsusa.com/products/peach-15ml/2346235000000071718?variant=2346235000000071714)","[UTOPIA 15ML](https://www.rbkollorsusa.com/products/utopia-15ml/2346235000000071746?variant=2346235000000071742)","[TRUE LOVE 15ML](https://www.rbkollorsusa.com/products/true-love-15ml/2346235000000071774?variant=2346235000000071770)","[RED LIFE 15ML](https://www.rbkollorsusa.com/products/red-life-15ml/2346235000000071812?variant=2346235000000071808)","[DILUENT 15ML](https://www.rbkollorsusa.com/products/diluent-15ml/2346235000000071840?variant=2346235000000071836)","[TERRACOTAA 15ML](https://www.rbkollorsusa.com/products/terracotta-15ml/2346235000000414139?variant=2346235000000414135)","[SAN 15ML](https://www.rbkollorsusa.com/products/san-15ml/2346235000000727014?variant=2346235000000727014)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+		response.put("questions",{question});
+	}
+	else if(products == "eyebrows")
+	{
+		response.put("action","context");
+		response.put("context_id","eyebrows");
+		question = {"name":"eyebrows","replies":{"[KIT BEGINNERS](https://www.rbkollorsusa.com/products/kit-beginners/2346235000000071012?variant=2346235000000071008)","[KIT MIAMI](https://www.rbkollorsusa.com/products/kit-miami/2346235000000071076?variant=2346235000000071072)","[JAMBLACK 15ML](https://www.rbkollorsusa.com/products/jamblack-15ml/2346235000000071228?variant=2346235000000071224)","[JAMBO 15ML](https://www.rbkollorsusa.com/products/jambo-15ml/2346235000000071266?variant=2346235000000071262)","[BLOND 15ML](https://www.rbkollorsusa.com/products/blond-15ml/2346235000000071294?variant=2346235000000071290)","[HOT 15ML](https://www.rbkollorsusa.com/products/hot-15ml/2346235000000071360?variant=2346235000000071356)","[UNIVERSAL 15ML](https://www.rbkollorsusa.com/products/universal-15ml/2346235000000071388?variant=2346235000000071384)","[OMBRE-2 15ML](https://www.rbkollorsusa.com/products/ombré-2-15ml/2346235000000071416?variant=2346235000000071412)","[OMBRE-1 15ML](https://www.rbkollorsusa.com/products/ombré-1-15ml/2346235000000071454?variant=2346235000000071450)","[HONEY 15ML](https://www.rbkollorsusa.com/products/honey-15ml/2346235000000071492?variant=2346235000000071488)","[TOTAL BLACK 15ML](https://www.rbkollorsusa.com/products/total-black-15ml/2346235000000071892?variant=2346235000000071888)","[BLOND LIGHT 15ML](https://www.rbkollorsusa.com/products/blond-light-15ml/2346235000000414061?variant=2346235000000414057)","[ILUMINADOR 15ML](https://www.rbkollorsusa.com/products/iluminador-15ml/2346235000000737177?variant=2346235000000737173)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+		response.put("questions",{question});
+	}
+	else if(products == "inorganic")
+	{
+		response.put("action","context");
+		response.put("context_id","inorganic");
+		question = {"name":"inorganic","replies":{"[SHADOW EXTA LIGHT](http://www.rbkollorsusa.com/products/inorganic-shadow-extra-light-15ml/2346235000000838111)","[SHADOW LIGHT](http://www.rbkollorsusa.com/products/b1782b18e7/2346235000000840304)","[BLEND RB 15ML](http://www.rbkollorsusa.com/products/inorganic-blend-15ml/2346235000000840285)","[OMBRE LINE RB 15ML](http://www.rbkollorsusa.com/products/inorganic-ombre-line-15ml/2346235000000840258)","[BROWNIE EXTRA DARK RB 15 ML](http://www.rbkollorsusa.com/products/inorganic-brownie-extra-dark-15ml/2346235000000840239)","[ICE REPAIR RB 15ML](http://www.rbkollorsusa.com/products/inorganic-ice-repair-15ml/2346235000000840207)","[BROWNIE RB 15ML](http://www.rbkollorsusa.com/products/inorganic-brownie-15ml/2346235000000840138)","[HOT REPAIR RB 15ML](http://www.rbkollorsusa.com/products/inorganic-hot-repair-15ml/2346235000000840119)","[ODENSE RB 15ML](http://www.rbkollorsusa.com/products/inorganic-odense-15ml/2346235000000840157)","[EVORA 15ML](http://www.rbkollorsusa.com/products/inorganic-evora-15ml/2346235000000840176)","[WHITE RB 15ML](http://www.rbkollorsusa.com/products/inorganic-white-15ml/2346235000000840226)","[VIENA 15ML](http://www.rbkollorsusa.com/products/h75a23fc30/2346235000000858964)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+		response.put("questions",{question});
+	}
+	else if(products == "skin")
+	{
+		response.put("action","context");
+		response.put("context_id","skin");
+		question = {"name":"skin","replies":{"[SKIN-1 15ML](https://www.rbkollorsusa.com/products/skin-1/2346235000000737003?variant=2346235000000737005)","[SKIN-2 15ML](https://www.rbkollorsusa.com/products/skin-2-15ml/2346235000000737045?variant=2346235000000737041)","[SKIN-3 15ML](https://www.rbkollorsusa.com/products/skin-3-15ml/2346235000000737087?variant=2346235000000737083)","[SKIN-4 15ML](https://www.rbkollorsusa.com/products/skin-4-15ml/2346235000000737119?variant=2346235000000737115)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+		response.put("questions",{question});
+	}
+	else if(products == "modifyers")
+	{
+		response.put("action","context");
+		response.put("context_id","modifyers");
+		question = {"name":"modifyers","replies":{"[PH DENSE 15ML](https://www.rbkollorsusa.com/products/ph-dense-15g/2346235000000414097?variant=2346235000000414093)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+		response.put("questions",{question});
+	}
+	else if(products == "hot")
+	{
+		response.put("action","context");
+		response.put("context_id","hot");
+		question = {"name":"hot","replies":{"[HOT 15ML](https://www.rbkollorsusa.com/products/hot-15ml/2346235000000071360?variant=2346235000000071356)","[HOT REPAIR RB 15ML(INORGANIC)](http://www.rbkollorsusa.com/products/inorganic-hot-repair-15ml/2346235000000840119)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+		response.put("questions",{question});
+	}
+	else if(products == "kit")
+	{
+		response.put("action","context");
+		response.put("context_id","kit");
+		question = {"name":"kit","replies":{"[KIT BEGINNERS](https://www.rbkollorsusa.com/products/kit-beginners/2346235000000071012?variant=2346235000000071008)","[KIT LIPS](https://www.rbkollorsusa.com/products/kit-lips/2346235000000071048?variant=2346235000000071044)","[KIT MIAMI](https://www.rbkollorsusa.com/products/kit-miami/2346235000000071076?variant=2346235000000071072)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+		response.put("questions",{question});
+	}
+	else if(products == "red")
+	{
+		response.put("action","context");
+		response.put("context_id","red");
+		question = {"name":"red","replies":{"[RED SAND 15ML](https://www.rbkollorsusa.com/products/red-sand-15ml/2346235000000071332?variant=2346235000000071328)","[RED VELVET 15ML](https://www.rbkollorsusa.com/products/red-velvet-15ml/2346235000000071662?variant=2346235000000071658)","[RED ROSE 15ML](https://www.rbkollorsusa.com/products/red-rose-15ml/2346235000000071690?variant=2346235000000071686)","[RED LIFE 15ML](https://www.rbkollorsusa.com/products/red-life-15ml/2346235000000071812?variant=2346235000000071808)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+		response.put("questions",{question});
+	}
+}
+else if(context_id.equals("purchase"))
+{
+	purchase = answers.get("purchase").get("text");
+	if(purchase.equalsIgnoreCase("Payment methods"))
+	{
+		if(!answers.containsKey("elsepart"))
+		{
+			question = {"name":"elsepart","replies":{"Credit cards: Visa, Mastercard, American Express, Discover, Diners Club, e JCB","PayPal","Bank of America Transfer","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+			response.put("questions",{question});
+		}
+		else if(answers.get("elsepart").get("text") == "No, Thank you")
+		{
+			response.put("action","end");
+			response.put("replies",{"OK! See you later. If you need anything else, please send me a message👋"});
+		}
+		else
+		{
+			response.put("action","reply");
+			response.put("replies",{"What else can I help you with?"});
+			response.put("suggestions",{"Technical questions","I already placed my order","Products/Services","Purchase"});
+		}
+	}
+	if(purchase.equalsIgnoreCase("Delivery and return policy"))
+	{
+		if(!answers.containsKey("elsepart"))
+		{
+			question = {"name":"elsepart","replies":{"We have a [delivery and return policy](https://www.rbkollorsusa.com/our-policy) that answers several questions and complaints regarding deliveries","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+			response.put("questions",{question});
+		}
+		else if(answers.get("elsepart").get("text") == "No, Thank you")
+		{
+			response.put("action","end");
+			response.put("replies",{"OK! See you later. If you need anything else, please send me a message👋"});
+		}
+		else
+		{
+			response.put("action","reply");
+			response.put("replies",{"What else can I help you with?"});
+			response.put("suggestions",{"Technical questions","I already placed my order","Products/Services","Purchase"});
+		}
+	}
+	if(purchase.equalsIgnoreCase("Discount-coupons available"))
+	{
+		if(!answers.containsKey("elsepart"))
+		{
+			question = {"name":"elsepart","replies":{"When purchasing 4 to 9 pigments use the *SPECIALRB* coupon","When purchasing 10 or more pigments use the *MEGARB* coupon","Before finalizing, put the appropriate coupon for your purchase","Do you need more help"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+			response.put("questions",{question});
+		}
+		else if(answers.get("elsepart").get("text") == "No, Thank you")
+		{
+			response.put("action","end");
+			response.put("replies",{"OK! See you later. If you need anything else, please send me a message👋"});
+		}
+		else
+		{
+			response.put("action","reply");
+			response.put("replies",{"What else can I help you with?"});
+			response.put("suggestions",{"Technical questions","I already placed my order","Products/Services","Purchase"});
+		}
+	}
+	else if(purchase == "lips")
+	{
+		response.put("action","context");
+		response.put("context_id","lips");
+		question = {"name":"lips","replies":{"[KIT LIPS](https://www.rbkollorsusa.com/products/kit-lips/2346235000000071048?variant=2346235000000071044)","[RED SAND 15ML](https://www.rbkollorsusa.com/products/red-sand-15ml/2346235000000071332?variant=2346235000000071328)","[FULL LIPS](https://www.rbkollorsusa.com/products/full-lips-15ml/2346235000000071520?variant=2346235000000071516)","[DARLING 15ML](https://www.rbkollorsusa.com/products/darling-15ml/2346235000000071548?variant=2346235000000071544)","[PENELOPE 15ML](https://www.rbkollorsusa.com/products/penelope-15ml/2346235000000071586?variant=2346235000000071582)","[RUBY 15ML](https://www.rbkollorsusa.com/products/ruby-15ml/2346235000000071624?variant=2346235000000071620)","[RED VELVET 15ML](https://www.rbkollorsusa.com/products/red-velvet-15ml/2346235000000071662?variant=2346235000000071658)","[RED ROSE 15ML](https://www.rbkollorsusa.com/products/red-rose-15ml/2346235000000071690?variant=2346235000000071686)","[PEACH 15ML](https://www.rbkollorsusa.com/products/peach-15ml/2346235000000071718?variant=2346235000000071714)","[UTOPIA 15ML](https://www.rbkollorsusa.com/products/utopia-15ml/2346235000000071746?variant=2346235000000071742)","[TRUE LOVE 15ML](https://www.rbkollorsusa.com/products/true-love-15ml/2346235000000071774?variant=2346235000000071770)","[RED LIFE 15ML](https://www.rbkollorsusa.com/products/red-life-15ml/2346235000000071812?variant=2346235000000071808)","[DILUENT 15ML](https://www.rbkollorsusa.com/products/diluent-15ml/2346235000000071840?variant=2346235000000071836)","[TERRACOTAA 15ML](https://www.rbkollorsusa.com/products/terracotta-15ml/2346235000000414139?variant=2346235000000414135)","[SAN 15ML](https://www.rbkollorsusa.com/products/san-15ml/2346235000000727014?variant=2346235000000727014)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+		response.put("questions",{question});
+	}
+	else if(purchase == "eyebrows")
+	{
+		response.put("action","context");
+		response.put("context_id","eyebrows");
+		question = {"name":"eyebrows","replies":{"[KIT BEGINNERS](https://www.rbkollorsusa.com/products/kit-beginners/2346235000000071012?variant=2346235000000071008)","[KIT MIAMI](https://www.rbkollorsusa.com/products/kit-miami/2346235000000071076?variant=2346235000000071072)","[JAMBLACK 15ML](https://www.rbkollorsusa.com/products/jamblack-15ml/2346235000000071228?variant=2346235000000071224)","[JAMBO 15ML](https://www.rbkollorsusa.com/products/jambo-15ml/2346235000000071266?variant=2346235000000071262)","[BLOND 15ML](https://www.rbkollorsusa.com/products/blond-15ml/2346235000000071294?variant=2346235000000071290)","[HOT 15ML](https://www.rbkollorsusa.com/products/hot-15ml/2346235000000071360?variant=2346235000000071356)","[UNIVERSAL 15ML](https://www.rbkollorsusa.com/products/universal-15ml/2346235000000071388?variant=2346235000000071384)","[OMBRE-2 15ML](https://www.rbkollorsusa.com/products/ombré-2-15ml/2346235000000071416?variant=2346235000000071412)","[OMBRE-1 15ML](https://www.rbkollorsusa.com/products/ombré-1-15ml/2346235000000071454?variant=2346235000000071450)","[HONEY 15ML](https://www.rbkollorsusa.com/products/honey-15ml/2346235000000071492?variant=2346235000000071488)","[TOTAL BLACK 15ML](https://www.rbkollorsusa.com/products/total-black-15ml/2346235000000071892?variant=2346235000000071888)","[BLOND LIGHT 15ML](https://www.rbkollorsusa.com/products/blond-light-15ml/2346235000000414061?variant=2346235000000414057)","[ILUMINADOR 15ML](https://www.rbkollorsusa.com/products/iluminador-15ml/2346235000000737177?variant=2346235000000737173)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+		response.put("questions",{question});
+	}
+	else if(purchase == "inorganic")
+	{
+		response.put("action","context");
+		response.put("context_id","inorganic");
+		question = {"name":"inorganic","replies":{"[SHADOW EXTA LIGHT](http://www.rbkollorsusa.com/products/inorganic-shadow-extra-light-15ml/2346235000000838111)","[SHADOW LIGHT](http://www.rbkollorsusa.com/products/b1782b18e7/2346235000000840304)","[BLEND RB 15ML](http://www.rbkollorsusa.com/products/inorganic-blend-15ml/2346235000000840285)","[OMBRE LINE RB 15ML](http://www.rbkollorsusa.com/products/inorganic-ombre-line-15ml/2346235000000840258)","[BROWNIE EXTRA DARK RB 15 ML](http://www.rbkollorsusa.com/products/inorganic-brownie-extra-dark-15ml/2346235000000840239)","[ICE REPAIR RB 15ML](http://www.rbkollorsusa.com/products/inorganic-ice-repair-15ml/2346235000000840207)","[BROWNIE RB 15ML](http://www.rbkollorsusa.com/products/inorganic-brownie-15ml/2346235000000840138)","[HOT REPAIR RB 15ML](http://www.rbkollorsusa.com/products/inorganic-hot-repair-15ml/2346235000000840119)","[ODENSE RB 15ML](http://www.rbkollorsusa.com/products/inorganic-odense-15ml/2346235000000840157)","[EVORA 15ML](http://www.rbkollorsusa.com/products/inorganic-evora-15ml/2346235000000840176)","[WHITE RB 15ML](http://www.rbkollorsusa.com/products/inorganic-white-15ml/2346235000000840226)","[VIENA 15ML](http://www.rbkollorsusa.com/products/h75a23fc30/2346235000000858964)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+		response.put("questions",{question});
+	}
+	else if(purchase == "skin")
+	{
+		response.put("action","context");
+		response.put("context_id","skin");
+		question = {"name":"skin","replies":{"[SKIN-1 15ML](https://www.rbkollorsusa.com/products/skin-1/2346235000000737003?variant=2346235000000737005)","[SKIN-2 15ML](https://www.rbkollorsusa.com/products/skin-2-15ml/2346235000000737045?variant=2346235000000737041)","[SKIN-3 15ML](https://www.rbkollorsusa.com/products/skin-3-15ml/2346235000000737087?variant=2346235000000737083)","[SKIN-4 15ML](https://www.rbkollorsusa.com/products/skin-4-15ml/2346235000000737119?variant=2346235000000737115)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+		response.put("questions",{question});
+	}
+	else if(purchase == "modifyers")
+	{
+		response.put("action","context");
+		response.put("context_id","modifyers");
+		question = {"name":"modifyers","replies":{"[PH DENSE 15ML](https://www.rbkollorsusa.com/products/ph-dense-15g/2346235000000414097?variant=2346235000000414093)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+		response.put("questions",{question});
+	}
+	else if(purchase == "hot")
+	{
+		response.put("action","context");
+		response.put("context_id","hot");
+		question = {"name":"hot","replies":{"[HOT 15ML](https://www.rbkollorsusa.com/products/hot-15ml/2346235000000071360?variant=2346235000000071356)","[HOT REPAIR RB 15ML(INORGANIC)](http://www.rbkollorsusa.com/products/inorganic-hot-repair-15ml/2346235000000840119)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+		response.put("questions",{question});
+	}
+	else if(purchase == "kit")
+	{
+		response.put("action","context");
+		response.put("context_id","kit");
+		question = {"name":"kit","replies":{"[KIT BEGINNERS](https://www.rbkollorsusa.com/products/kit-beginners/2346235000000071012?variant=2346235000000071008)","[KIT LIPS](https://www.rbkollorsusa.com/products/kit-lips/2346235000000071048?variant=2346235000000071044)","[KIT MIAMI](https://www.rbkollorsusa.com/products/kit-miami/2346235000000071076?variant=2346235000000071072)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+		response.put("questions",{question});
+	}
+	else if(purchase == "red")
+	{
+		response.put("action","context");
+		response.put("context_id","red");
+		question = {"name":"red","replies":{"[RED SAND 15ML](https://www.rbkollorsusa.com/products/red-sand-15ml/2346235000000071332?variant=2346235000000071328)","[RED VELVET 15ML](https://www.rbkollorsusa.com/products/red-velvet-15ml/2346235000000071662?variant=2346235000000071658)","[RED ROSE 15ML](https://www.rbkollorsusa.com/products/red-rose-15ml/2346235000000071690?variant=2346235000000071686)","[RED LIFE 15ML](https://www.rbkollorsusa.com/products/red-life-15ml/2346235000000071812?variant=2346235000000071808)","Do you need more help?"},"input":{"type":"select","options":{"Yes, I need help","No, Thank you"}}};
+		response.put("questions",{question});
+	}
+}
+else if(context_id.equals("lips"))
+{
+	response.put("action","reply");
+	response.put("replies",{"What else can I help you with?"});
+	response.put("suggestions",{"Technical questions","I already placed my order","Products/Services","Purchase"});
+}
+else if(context_id.equals("eyebrows"))
+{
+	response.put("action","reply");
+	response.put("replies",{"What else can I help you with?"});
+	response.put("suggestions",{"Technical questions","I already placed my order","Products/Services","Purchase"});
+}
+else if(context_id.equals("inorganic"))
+{
+	response.put("action","reply");
+	response.put("replies",{"What else can I help you with?"});
+	response.put("suggestions",{"Technical questions","I already placed my order","Products/Services","Purchase"});
+}
+else if(context_id.equals("skin"))
+{
+	response.put("action","reply");
+	response.put("replies",{"What else can I help you with?"});
+	response.put("suggestions",{"Technical questions","I already placed my order","Products/Services","Purchase"});
+}
+else if(context_id.equals("modifyers"))
+{
+	response.put("action","reply");
+	response.put("replies",{"What else can I help you with?"});
+	response.put("suggestions",{"Technical questions","I already placed my order","Products/Services","Purchase"});
+}
+else if(context_id.equals("hot"))
+{
+	response.put("action","reply");
+	response.put("replies",{"What else can I help you with?"});
+	response.put("suggestions",{"Technical questions","I already placed my order","Products/Services","Purchase"});
+}
+else if(context_id.equals("kit"))
+{
+	response.put("action","reply");
+	response.put("replies",{"What else can I help you with?"});
+	response.put("suggestions",{"Technical questions","I already placed my order","Products/Services","Purchase"});
+}
+else if(context_id.equals("red"))
+{
+	response.put("action","reply");
+	response.put("replies",{"What else can I help you with?"});
+	response.put("suggestions",{"Technical questions","I already placed my order","Products/Services","Purchase"});
+}
+return response;

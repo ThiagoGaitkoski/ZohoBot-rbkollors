@@ -1,0 +1,6 @@
+//Trigger Handler
+response = Map();
+response.put("action","reply");
+response.put("replies",{"Select your language"});
+response.put("suggestions",{"English","Spanish"});
+return response;
